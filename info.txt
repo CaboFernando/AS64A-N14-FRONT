@@ -1,0 +1,6 @@
+Senha: eh_legal
+
+Projeto 1: front com react
+
+Projeto 2: front e back (node express)
+
