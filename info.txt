@@ -12,4 +12,5 @@ Aula 2 -> Revisão JS
 
 Aula 3 -> Cancelada
 
-Auça 4 -> Recursos de JS e ES6
+Aula 4 -> Recursos de JS e ES6
+
