@@ -14,3 +14,9 @@ Aula 3 -> Cancelada
 
 Aula 4 -> Recursos de JS e ES6
 
+Aula 5 -> Ajax
+
+Aula 6 -> Faltei
+
+Aula 7 -> Resolução dos exercícios de JS, ES6, Contexto e OO
+
