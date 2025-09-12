@@ -56,9 +56,10 @@ function GradeNova({ className }) {
                         className={`disciplina-item ${dados.r ? 'remoto' : ''}`}
                     >
                         <strong>{nome}</strong> — {dados.ch}h
-                        {dados.r && <span className="badge remoto"> REMOTA </span>}
-                        {dados.op && <span className="badge optativa"> OPTATIVA </span>}
+                        {dados.r && <span className="badge remoto">REMOTA</span>}
+                        {dados.op && <span className="badge optativa">OPTATIVA</span>}
                     </li>
+
                 ))}
             </ul>
         </section>
