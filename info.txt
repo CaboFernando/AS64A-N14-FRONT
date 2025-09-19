@@ -22,3 +22,7 @@ Aula 7 -> Resolução dos exercícios de JS, ES6, Contexto e OO
 
 Aula 8 -> Exercícios de AJAX + Introdução ao React
 
+Aula 9 -> Faltei
+
+Aula 10 -> Exercícios de Events, States e Props
+
