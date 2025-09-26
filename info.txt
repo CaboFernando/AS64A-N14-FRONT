@@ -26,3 +26,4 @@ Aula 9 -> Faltei
 
 Aula 10 -> Exercícios de Events, States e Props
 
+Aula 11 -> Comunicação entre Componentes
