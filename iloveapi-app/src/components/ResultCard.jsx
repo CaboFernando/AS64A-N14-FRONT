@@ -1,30 +1,27 @@
-import React, { useContext } from 'react';
-import { Button, Container, Spinner, Alert, Card } from 'react-bootstrap';
-import ApiContext from '../contexts/ApiContext';
+import { useContext } from "react";
+import { AppContext } from "../contexts/AppContext";
+import { Card, Button } from "react-bootstrap";
+// Import Lucide icons if desired, but sticking to Bootstrap for this version
+// import { Download } from 'lucide-react'; 
 
-export default function ApiViewer() {
-  const { state, fetchData } = useContext(ApiContext);
-  const { loading, error, data } = state;
+export default function ResultCard() {
+  const { state, dispatch } = useContext(AppContext);
+
+  if (state.status !== "done") return null;
 
   return (
-    <Container className="py-5">
-      <h1 className="mb-4">ILoveAPI com useReducer + Context</h1>
-
-      <Button onClick={fetchData} variant="primary" disabled={loading}>
-        {loading ? <Spinner animation="border" size="sm" /> : 'Buscar Dados'}
-      </Button>
-
-      <div className="mt-4">
-        {error && <Alert variant="danger">{error}</Alert>}
-        {data && (
-          <Card>
-            <Card.Body>
-              <Card.Title>Resultado:</Card.Title>
-              <pre>{JSON.stringify(data, null, 2)}</pre>
-            </Card.Body>
-          </Card>
-        )}
-      </div>
-    </Container>
+    <Card className="mt-4 shadow-sm text-center border-success">
+      <Card.Body>
+        <Card.Title className="text-success">✅ Arquivo processado com sucesso!</Card.Title>
+        <div className="d-grid gap-2">
+          <Button variant="success" href={state.resultUrl} target="_blank">
+            Baixar PDF Comprimido
+          </Button>
+          <Button variant="outline-primary" onClick={() => dispatch({ type: "RESET" })}>
+            Processar Outro Arquivo
+          </Button>
+        </div>
+      </Card.Body>
+    </Card>
   );
 }

@@ -1,24 +1,19 @@
-import React from 'react';
-import { ApiProvider } from './contexts/ApiContext';
-import ApiViewer from './components/ApiViewer';
+import UploadForm from "./UploadForm";
+import ResultCard from "./ResultCard";
+import { Container } from "react-bootstrap";
 
-import { CepProvider } from './contexts/CepContext';
-import CepSearch from './components/CepSearch';
 
-function App() {
+export default function App() {
   return (
-    <>
-      <ApiProvider>
-        <ApiViewer />
-      </ApiProvider>
-
-      <hr />
-
-      <CepProvider>
-        <CepSearch />
-      </CepProvider>
-    </>
+    <Container className="my-5">
+      <header className="text-center mb-4">
+        <h1 className="text-primary fw-bold">PDF Compressor - Projeto Fullstack</h1>
+        <p className="text-muted">Utilizando React, Context API, useReducer e Bootstrap</p>
+      </header>
+      
+      <UploadForm />
+      
+      <ResultCard />
+    </Container>
   );
 }
-
-export default App;
