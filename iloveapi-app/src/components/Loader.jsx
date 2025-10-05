@@ -1,10 +1,15 @@
 import Spinner from "react-bootstrap/Spinner";
+import PropTypes from 'prop-types';
 
-export default function Loader({ message = "Aguarde..." }) {
+export default function Loader({ message }) {
   return (
-    <div className="text-center my-3 d-flex flex-column align-items-center">
-      <Spinner animation="border" role="status" className="mb-2" />
-      <span className="text-muted small">{message}</span>
+    <div className="text-center my-4">
+      <Spinner animation="border" role="status" variant="primary" />
+      <p className="mt-2 text-muted">{message}</p>
     </div>
   );
 }
+
+Loader.propTypes = {
+    message: PropTypes.string.isRequired,
+};
