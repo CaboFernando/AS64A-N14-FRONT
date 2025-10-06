@@ -39,7 +39,13 @@ export default function ResultCard() {
               <p className="text-muted mb-1">
                 Lançamento: {movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A'}
               </p>
-              <p className="small" style={{ overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', whiteSpace: 'normal' }}>
+              <p className="small" style={{
+                display: '-webkit-box',
+                WebkitLineClamp: 3,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
+              }}>
                 {movie.overview || 'Nenhuma descrição disponível.'}
               </p>
             </div>
