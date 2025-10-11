@@ -108,7 +108,7 @@ export default function UploadForm() {
           </Form.Group>
         </Col>
 
-        <Col md={4}>
+        <Col md={12}>
           <Form.Group controlId="formReleaseYear">
             <Form.Label>Ano de Lançamento (Opcional)</Form.Label>
             <Form.Control
