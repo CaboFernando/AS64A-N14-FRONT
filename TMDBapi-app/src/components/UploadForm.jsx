@@ -33,6 +33,24 @@ export default function UploadForm() {
     return response.data.results;
   };
 
+  const validateSearchInput = (searchQuery) => {
+    const trimmedQuery = searchQuery.trim();
+
+    if (trimmedQuery && trimmedQuery.length < 2) {
+      return 'O título deve ter pelo menos 2 caracteres';
+    }
+
+    if (trimmedQuery && trimmedQuery.length > 100) {
+      return 'O título é muito longo (máximo 100 caracteres)';
+    }
+
+    if (trimmedQuery && !/[a-zA-ZÀ-ÿ]/.test(trimmedQuery)) {
+      return 'Digite um título válido com letras';
+    }
+
+    return null;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -41,6 +59,13 @@ export default function UploadForm() {
 
     if (!trimmedQuery && !trimmedYear) {
       return dispatch({ type: "ERROR", payload: "Por favor, digite um Título ou selecione um Ano para a busca." });
+    }
+
+    if (trimmedQuery) {
+      const validationError = validateSearchInput(trimmedQuery);
+      if (validationError) {
+        return dispatch({ type: "ERROR", payload: validationError });
+      }
     }
 
     try {
@@ -102,9 +127,18 @@ export default function UploadForm() {
               type="text"
               placeholder="Ex: Matrix, Vingadores, Interestelar..."
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => {
+                setQuery(e.target.value);
+                if (state.status === "error") {
+                  dispatch({ type: "RESET" });
+                }
+              }}
               disabled={isSearching}
+              isInvalid={state.status === "error" && query.trim().length > 0}
             />
+            <Form.Control.Feedback type="invalid">
+              {state.error}
+            </Form.Control.Feedback>
           </Form.Group>
         </Col>
 
